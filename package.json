@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev  --port 3025",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "nuxt": "^3.10.2",
+    "vue": "^3.4.19",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/i18n": "^8.1.1",
+    "@types/lodash-es": "^4.17.12",
+    "lodash-es": "^4.17.21",
+    "nuxt-font-loader": "^2.3.5",
+    "vite-svg-loader": "^5.1.0"
+  }
+}
