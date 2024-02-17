@@ -1,0 +1,6 @@
+fragment FieldOption on FieldOption {
+  label
+  value
+  isOptgroup
+  isDefault
+}

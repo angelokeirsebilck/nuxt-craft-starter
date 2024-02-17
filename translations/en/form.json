@@ -1,0 +1,25 @@
+{
+  "customErrorMessage": "Something went wrong, please try again later.",
+  "confirm": "Confirm",
+  "send": "Send",
+  "vatError": "Please enter a valid VAT number.",
+  "accept": "I agree to the ",
+  "fields": {
+    "email": "E-mail",
+    "password": "Password",
+    "firstName": "Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "companyName": "Company Name",
+    "companyActivity": "Activity",
+    "vatNumber": "VAT Number",
+    "name": "Naam",
+    "streetAddress": "Street Address",
+    "addressLine2": "Address Line 2",
+    "city": "City",
+    "zip": "ZIP / Postal Code",
+    "country": "Country",
+    "passwordConfirmation": "Password Confirmation",
+    "gdpr": "I agree to the "
+  }
+}

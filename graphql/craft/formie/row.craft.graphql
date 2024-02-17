@@ -1,0 +1,7 @@
+fragment RowFragment on RowInterface {
+  id
+  uid
+  rowFields {
+    ...FieldFragment
+  }
+}

@@ -1,0 +1,23 @@
+fragment embeddedAsset on EmbeddedAssetInterface {
+  title
+  description
+  url
+  type
+  image
+  imageWidth
+  imageHeight
+  code
+  width
+  height
+  aspectRatio
+  authorName
+  authorUrl
+  providerIcon
+  providerName
+  providerUrl
+  publishedTime
+  license
+  isSafe
+  html
+  iframeCode
+}

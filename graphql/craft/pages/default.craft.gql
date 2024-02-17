@@ -1,0 +1,8 @@
+fragment pagesDefault on EntryInterface {
+  ... on pages_default_Entry {
+    ...defaultProps
+    fieldContentBuilder {
+      ...contentBuilder
+    }
+  }
+}

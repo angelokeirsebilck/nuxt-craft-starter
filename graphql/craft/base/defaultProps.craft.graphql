@@ -1,0 +1,17 @@
+fragment defaultProps on EntryInterface {
+  __typename
+  id
+  title
+  typeHandle
+  sectionHandle
+  siteId
+  uri
+  localized {
+    siteId
+    uri
+    language
+  }
+  seo: seomatic(asArray: true) {
+    ...seo
+  }
+}

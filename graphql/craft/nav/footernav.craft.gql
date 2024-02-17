@@ -1,0 +1,15 @@
+query footerNav($siteId: [QueryArgument]!) {
+  navigationNodes(navHandle: "footerNav", siteId: $siteId) {
+    title
+    nodeUri
+    id
+    language
+    children {
+      nodeUri
+      title
+      nodeUri
+      id
+      language
+    }
+  }
+}

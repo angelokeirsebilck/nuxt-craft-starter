@@ -1,0 +1,13 @@
+fragment image on ElementInterface {
+  __typename
+  ... on images_Asset {
+    __typename
+    id
+    width
+    url
+    title
+    size
+    kind
+    height
+  }
+}

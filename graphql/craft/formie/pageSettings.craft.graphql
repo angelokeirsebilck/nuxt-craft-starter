@@ -1,0 +1,10 @@
+fragment PageSettingsFragment on PageSettingsInterface {
+  submitButtonLabel
+  backButtonLabel
+  showBackButton
+  buttonsPosition
+  cssClasses
+  enablePageConditions
+  enableNextButtonConditions
+  nextButtonConditions
+}

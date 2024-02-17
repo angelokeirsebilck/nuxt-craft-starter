@@ -1,0 +1,5 @@
+query allNewsPages($siteId: [QueryArgument]!) {
+  entries(section: "newsPages", siteId: $siteId) {
+    ...newsPagesDefault
+  }
+}

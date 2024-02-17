@@ -1,0 +1,11 @@
+fragment file on ElementInterface {
+  __typename
+  ... on files_Asset {
+    title
+    url
+    format
+    kind
+    height
+    width
+  }
+}

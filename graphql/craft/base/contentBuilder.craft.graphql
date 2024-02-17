@@ -1,0 +1,3 @@
+fragment contentBuilder on fieldContentBuilder_MatrixField {
+  ...typeText
+}

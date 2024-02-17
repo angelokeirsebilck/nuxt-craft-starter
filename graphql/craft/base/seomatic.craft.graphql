@@ -1,0 +1,9 @@
+fragment seo on SeomaticInterface {
+  ... on SeomaticType {
+    metaTitleContainer
+    metaTagContainer
+    metaSiteVarsContainer
+    metaLinkContainer
+    metaJsonLdContainer
+  }
+}

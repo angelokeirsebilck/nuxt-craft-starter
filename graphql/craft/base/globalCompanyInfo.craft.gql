@@ -1,0 +1,28 @@
+query globalCompanyInfo($siteId: [QueryArgument]!) {
+  globalCompanyInfoEntries(siteId: $siteId) {
+    ... on globalCompanyInfo_globalCompanyInfo_Entry {
+      fieldAddressLine1
+      fieldAddressLine2
+      fieldAddressLine3
+      fieldLogo {
+        ...image
+      }
+      fieldTel {
+        ...link
+      }
+      fieldVAT
+      fieldFax
+      fieldEmail {
+        ...link
+      }
+      fieldSocials {
+        ... on fieldSocials_BlockType {
+          id
+          itemFacebook
+          itemInstagram
+          itemLinkedin
+        }
+      }
+    }
+  }
+}

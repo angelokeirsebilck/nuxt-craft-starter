@@ -1,0 +1,32 @@
+{
+  "customErrorMessage": "Er is iets misgegaan, probeer het later opnieuw.",
+  "confirm": "Bevestigen",
+  "send": "Versturen",
+  "vatError": "Voer een geldig BTW-nummer in.",
+  "accept": "Ik ga akkoord met de ",
+  "pp": "privacyverklaring",
+  "required": "Dit veld is verplicht.",
+  "yourEmail": "Jouw e-mailadres",
+  "placeholders": {
+    "email": "naam at test.com",
+    "password": "Wachtwoord"
+  },
+  "fields": {
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "phoneNumber": "Telefoonnummer",
+    "companyName": "Bedrijfsnaam",
+    "companyActivity": "Activiteit",
+    "vatNumber": "BTW-nummer",
+    "name": "Naam",
+    "streetAddress": "Straatnaam",
+    "addressLine2": "Adresregel 2",
+    "city": "Stad",
+    "zip": "Postcode",
+    "country": "Land",
+    "passwordConfirmation": "Wachtwoord bevestiging",
+    "gdpr": "Ik ga akkoord met de "
+  }
+}

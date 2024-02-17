@@ -1,0 +1,12 @@
+query globalGeneral($siteId: [QueryArgument]!) {
+  globalGeneralEntries(siteId: $siteId) {
+    ... on globalGeneral_globalGeneral_Entry {
+      fieldTermsPage {
+        uri
+      }
+      fieldPP {
+        uri
+      }
+    }
+  }
+}

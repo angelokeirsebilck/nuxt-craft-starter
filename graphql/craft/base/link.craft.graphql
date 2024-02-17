@@ -1,0 +1,15 @@
+fragment link on linkField_Link {
+  url
+  type
+  title
+  text
+  target
+  customText
+  ariaLabel
+  element {
+    uri
+    siteId
+    language
+    title
+  }
+}

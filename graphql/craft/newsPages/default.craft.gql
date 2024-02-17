@@ -1,0 +1,15 @@
+fragment newsPagesDefault on EntryInterface {
+  ... on newsPages_default_Entry {
+    ...defaultProps
+    postDate
+    fieldContentBuilder {
+      ...contentBuilder
+    }
+    fieldThumbnail {
+      ...image
+    }
+    fieldImage {
+      ...image
+    }
+  }
+}

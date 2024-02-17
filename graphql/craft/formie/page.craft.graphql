@@ -1,0 +1,12 @@
+fragment PageFragment on PageInterface {
+  id
+  uid
+  name
+  rows {
+    ...RowFragment
+  }
+
+  settings {
+    ...PageSettingsFragment
+  }
+}

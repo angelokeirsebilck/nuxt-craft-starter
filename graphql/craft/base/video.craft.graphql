@@ -1,0 +1,19 @@
+fragment video on ElementInterface {
+  __typename
+  ... on videos_Asset {
+    __typename
+    url
+    format
+    kind
+    height
+    width
+    embeddedAsset {
+      ...embeddedAsset
+    }
+    fieldThumbnail {
+      ... on images_Asset {
+        ...image
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+fragment home on EntryInterface {
+  ... on home_home_Entry {
+    ...defaultProps
+    fieldContentBuilder {
+      ...contentBuilder
+    }
+  }
+}

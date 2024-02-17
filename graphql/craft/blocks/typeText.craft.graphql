@@ -1,0 +1,23 @@
+fragment typeText on MatrixBlockInterface {
+  ... on fieldContentBuilder_typeText_BlockType {
+    __typename
+    itemBlockSpacingTop
+    itemBlockSpacingBottom
+    itemBgColor
+    itemColumns {
+      ... on itemColumns_BlockType {
+        id
+        itemTitle
+        itemText
+        itemLinks {
+          ... on itemLinks_typeLink_BlockType {
+            itemLink {
+              ...link
+            }
+            itemLinkStyle
+          }
+        }
+      }
+    }
+  }
+}

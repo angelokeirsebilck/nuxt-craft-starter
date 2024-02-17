@@ -1,0 +1,39 @@
+{
+  "welcome": "Welkom",
+  "404": "Pagina niet gevonden.",
+  "404message": "Dit is niet de pagina die u zoekt.",
+  "goBackHome": "Ga terug naar de startpagina",
+  "gqlError": "Er is iets misgegaan.",
+  "followUs": "Volg ons",
+  "newsOverview": "Nieuwsoverzicht",
+  "next": "Volgende",
+  "previous": "Vorige",
+  "back": "Terug",
+  "showing": "Toont",
+  "to": "tot",
+  "of": "van",
+  "results": "resultaten",
+  "months": {
+    "1": "januari",
+    "2": "februari",
+    "3": "maart",
+    "4": "april",
+    "5": "mei",
+    "6": "juni",
+    "7": "juli",
+    "8": "augustus",
+    "9": "september",
+    "10": "oktober",
+    "11": "november",
+    "12": "dec"
+  },
+  "days": {
+    "0": "Ma",
+    "1": "Di",
+    "2": "Wo",
+    "3": "Do",
+    "4": "Vr",
+    "5": "Za",
+    "6": "Zo"
+  }
+}

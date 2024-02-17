@@ -1,0 +1,15 @@
+query mainNav($siteId: [QueryArgument]!) {
+  navigationNodes(navHandle: "mainNav", siteId: $siteId) {
+    title
+    nodeUri
+    id
+    language
+    children {
+      nodeUri
+      title
+      nodeUri
+      id
+      language
+    }
+  }
+}

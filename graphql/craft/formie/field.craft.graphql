@@ -1,0 +1,100 @@
+fragment FieldFragment on FieldInterface {
+  id
+  uid
+  name
+  label: name
+  handle
+  instructions
+  required
+  type
+  displayName
+  typeName
+  inputTypeName
+  matchField
+  placeholder
+  defaultValue
+  prePopulate
+  errorMessage
+  labelPosition
+  instructionsPosition
+  cssClasses
+  includeInEmail
+  enableConditions
+  conditions
+  enableContentEncryption
+  visibility
+  __typename
+
+  containerAttributes {
+    label
+    value
+  }
+
+  inputAttributes {
+    label
+    value
+  }
+
+  ... on Field_Agree {
+    description
+    descriptionHtml
+    checkedValue
+    uncheckedValue
+    defaultState
+  }
+
+  ... on Field_Email {
+    placeholder
+    defaultValue
+    validateDomain
+    blockedDomains
+    uniqueValue
+  }
+
+  ... on Field_MultiLineText {
+    defaultValue
+  }
+
+  ... on Field_SingleLineText {
+    defaultValue
+  }
+
+  ... on Field_Entries {
+    placeholder
+    displayType
+    entries {
+      id
+      title
+      slug
+    }
+  }
+
+  ... on Field_Radio {
+    options {
+      ...FieldOption
+    }
+    layout
+  }
+
+  ... on Field_Checkboxes {
+    options {
+      ...FieldOption
+    }
+    layout
+  }
+
+  ... on Field_Dropdown {
+    options {
+      ...FieldOption
+    }
+    defaultValue
+  }
+
+  ... on Field_FileUpload {
+    uploadLocationSource
+    uploadLocationSubpath
+    limitFiles
+    sizeLimit
+    allowedKinds
+  }
+}

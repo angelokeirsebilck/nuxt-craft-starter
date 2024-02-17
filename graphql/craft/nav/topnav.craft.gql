@@ -1,0 +1,15 @@
+query topNav($siteId: [QueryArgument]!) {
+  navigationNodes(navHandle: "topNav", siteId: $siteId) {
+    title
+    nodeUri
+    id
+    language
+    children {
+      nodeUri
+      title
+      nodeUri
+      id
+      language
+    }
+  }
+}

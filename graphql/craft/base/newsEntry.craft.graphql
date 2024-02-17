@@ -1,0 +1,7 @@
+query newsEntry($siteId: [QueryArgument]!) {
+  newsEntries(siteId: $siteId) {
+    ... on news_news_Entry {
+      uri
+    }
+  }
+}
