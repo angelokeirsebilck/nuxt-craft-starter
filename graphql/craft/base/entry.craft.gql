@@ -2,5 +2,8 @@ query entry($uri: [String]!, $siteId: [QueryArgument]!) {
   entry(uri: $uri, siteId: $siteId) {
     ...home
     ...pagesDefault
+    ...newsPagesDefault
+    ...news
+    ...jobs
   }
 }

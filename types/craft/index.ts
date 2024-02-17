@@ -1,4 +1,5 @@
 import type {
+  AllNewsPagesQuery,
   EntryQuery,
   FooterNavQuery,
   GlobalCompanyInfoQuery,
@@ -94,6 +95,10 @@ export type CraftLinkWrapper = TextBlock["itemColumns"][0]["itemLinks"][0];
 
 export type MainNav = NonNullable<MainNavQuery["navigationNodes"]>;
 export type FooterNav = NonNullable<FooterNavQuery["navigationNodes"]>;
+
+export type AllNewsPages = RemoveEmptyObjectUnions<
+  AllNewsPagesQuery["entries"]
+>;
 
 export type Localized = {
   language: string;

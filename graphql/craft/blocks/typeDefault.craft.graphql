@@ -1,0 +1,58 @@
+fragment typeDefault on MatrixBlockInterface {
+  ... on fieldContentBuilder_typeDefault_BlockType {
+    __typename
+    itemBgColor
+    ... on fieldContentBuilder_typeDefault_BlockType {
+      id
+      itemDefaultColumns {
+        ... on itemDefaultColumns_BlockType {
+          id
+          itemColumn {
+            ... on itemColumn_typeTitle_BlockType {
+              __typename
+              id
+              itemTitle
+              itemTitleTop
+            }
+            ... on itemColumn_typeText_BlockType {
+              __typename
+              id
+              itemText
+            }
+            ... on itemColumn_typeMedia_BlockType {
+              __typename
+              id
+              itemMedia {
+                ...video
+                ...image
+              }
+            }
+            ... on itemColumn_typeLinks_BlockType {
+              __typename
+              id
+              itemLinks {
+                ... on itemLinks_BlockType {
+                  id
+                  itemLinkStyle
+                  itemLink {
+                    ...link
+                  }
+                }
+              }
+            }
+            ... on itemColumn_typeForm_BlockType {
+              __typename
+              itemForm {
+                ...FormFragment
+              }
+            }
+            ... on itemColumn_typeContactInfo_BlockType {
+              __typename
+              itemShowContactInfo
+            }
+          }
+        }
+      }
+    }
+  }
+}

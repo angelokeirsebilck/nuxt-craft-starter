@@ -1,0 +1,5 @@
+fragment typeNewsOverview on MatrixBlockInterface {
+  ... on fieldContentBuilder_typeNewsOverview_BlockType {
+    __typename
+  }
+}

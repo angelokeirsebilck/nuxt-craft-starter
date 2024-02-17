@@ -1,0 +1,8 @@
+fragment jobs on EntryInterface {
+  ... on jobs_jobs_Entry {
+    ...defaultProps
+    fieldContentBuilder {
+      ...contentBuilder
+    }
+  }
+}

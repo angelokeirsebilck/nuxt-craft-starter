@@ -1,8 +1,6 @@
 fragment typeText on MatrixBlockInterface {
   ... on fieldContentBuilder_typeText_BlockType {
     __typename
-    itemBlockSpacingTop
-    itemBlockSpacingBottom
     itemBgColor
     itemColumns {
       ... on itemColumns_BlockType {

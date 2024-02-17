@@ -1,0 +1,8 @@
+fragment news on EntryInterface {
+  ... on news_news_Entry {
+    ...defaultProps
+    fieldContentBuilder {
+      ...contentBuilder
+    }
+  }
+}

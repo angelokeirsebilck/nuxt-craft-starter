@@ -1,5 +1,6 @@
 import { skipHydrate } from "pinia";
 import type {
+  AllNewsPages,
   CompanyInfo,
   FooterNav,
   GlobalGeneral,
@@ -15,6 +16,9 @@ export const useCraftStore = defineStore("craft", () => {
 
   const globalCompanyInfo: Ref<CompanyInfo | null> = ref(null);
   const globalGeneral: Ref<GlobalGeneral | null> = ref(null);
+
+  const allNewsPages: Ref<AllNewsPages | undefined> = ref();
+  const newsEntryUri: Ref<string | undefined> = ref();
 
   async function loadMainNav() {
     const { data: mainNavData, error: mainNavError } = await useAsyncData(
@@ -82,6 +86,36 @@ export const useCraftStore = defineStore("craft", () => {
     }
   }
 
+  async function loadAllNewsPages() {
+    const { data: allNewsPagesData, error: allNewsPagesError } =
+      await useAsyncData(`allNewsPages`, () =>
+        GqlAllNewsPages({
+          siteId: currentSite.value?.siteId,
+        })
+      );
+    if (allNewsPagesData.value != null) {
+      if (allNewsPagesData.value.entries)
+        allNewsPages.value = allNewsPagesData.value.entries as AllNewsPages;
+    }
+  }
+
+  async function loadNewsEntry() {
+    const { data: newsEntryData, error: newsEntryError } = await useAsyncData(
+      `newsEntry`,
+      () =>
+        GqlNewsEntry({
+          siteId: currentSite.value?.siteId,
+        })
+    );
+    if (newsEntryData.value != null) {
+      if (
+        newsEntryData.value.newsEntries &&
+        newsEntryData.value.newsEntries[0]?.uri
+      )
+        newsEntryUri.value = newsEntryData.value.newsEntries[0]?.uri;
+    }
+  }
+
   watch(currentSite, () => {
     loadCraftData();
   });
@@ -92,6 +126,8 @@ export const useCraftStore = defineStore("craft", () => {
       loadFooterNav(),
       loadGlobalCompanyInfo(),
       loadGlobalGeneral(),
+      loadAllNewsPages(),
+      loadNewsEntry(),
     ]);
   };
 
@@ -101,5 +137,7 @@ export const useCraftStore = defineStore("craft", () => {
     footerNav: skipHydrate(footerNav),
     globalCompanyInfo,
     globalGeneral,
+    allNewsPages,
+    newsEntryUri,
   };
 });
