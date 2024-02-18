@@ -1,13 +1,4 @@
-<script lang="ts" setup>
-const craftStore = useCraftStore();
-const { loadCraftData } = craftStore;
-
-onMounted(() => {
-  nextTick(() => {
-    loadCraftData();
-  });
-});
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <div class="font-serif">

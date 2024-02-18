@@ -17,7 +17,7 @@ export const useSiteStore = defineStore("site", () => {
   return {
     currentSite: skipHydrate(currentSite),
     setCurrentsite,
-    localized,
+    localized: skipHydrate(localized),
     setLocalized,
   };
 });

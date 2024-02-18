@@ -4,12 +4,13 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev  --port 3025",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem --port 3025",
     "generate": "nuxt generate",
     "preview": "nuxt preview"
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.33",
+    "@formkit/nuxt": "^1.5.9",
     "@nuxt/image": "1.2.0",
     "@pinia/nuxt": "^0.5.1",
     "@vueuse/core": "^10.7.2",

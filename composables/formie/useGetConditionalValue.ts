@@ -6,7 +6,7 @@ interface ICondition {
 }
 
 interface IFormData {
-  [key: string]: string | number;
+  [key: string]: string;
 }
 
 export const useGetConditionalValue = (field: any, formData: IFormData) => {
@@ -54,7 +54,11 @@ const checkCondition = (condition: ICondition, formData: IFormData) => {
         return true;
       return false;
     case "startsWith":
-      if (formData[fieldHandle].startsWith(condition.value)) return true;
+      if (
+        typeof formData[fieldHandle] == "string" &&
+        formData[fieldHandle].startsWith(condition.value)
+      )
+        return true;
       return false;
     case "endsWith":
       if (formData[fieldHandle].endsWith(condition.value)) return true;

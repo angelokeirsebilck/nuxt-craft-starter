@@ -14,7 +14,12 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "nuxt-font-loader",
     "@nuxt/image",
+    "@formkit/nuxt",
   ],
+  formkit: {
+    // Experimental support for auto loading (see note):
+    autoImport: true,
+  },
   components: {
     dirs: [
       {
