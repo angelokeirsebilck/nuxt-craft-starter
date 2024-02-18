@@ -1,8 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const siteStore = useSiteStore();
+const { currentSite } = storeToRefs(siteStore);
+</script>
 
 <template>
   <div class="font-serif">
-    <Html>
+    <Html :lang="`${currentSite?.locale}`">
       <div class="wrapper">
         <LayoutTheHeader />
         <slot />
