@@ -7,6 +7,7 @@ fragment typeText on MatrixBlockInterface {
         id
         itemTitle
         itemText
+        itemTest
         itemLinks {
           ... on itemLinks_typeLink_BlockType {
             itemLink {
