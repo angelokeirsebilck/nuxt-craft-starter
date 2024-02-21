@@ -1,5 +1,27 @@
-query allNewsPages($siteId: [QueryArgument]!) {
-  entries(section: "newsPages", siteId: $siteId) {
+query allNewsPages(
+  $siteId: [QueryArgument]!
+  $offset: Int!
+  $limit: Int!
+  $latestCount: Int!
+) {
+  entries(
+    section: "newsPages"
+    siteId: $siteId
+    offset: $offset
+    limit: $limit
+  ) {
     ...newsPagesDefault
+  }
+
+  latestNews: entries(
+    section: "newsPages"
+    siteId: $siteId
+    limit: $latestCount
+  ) {
+    ...newsPagesDefault
+  }
+
+  entryCount: entries(section: "newsPages") {
+    id
   }
 }

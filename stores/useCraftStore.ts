@@ -18,7 +18,12 @@ export const useCraftStore = defineStore("craft", () => {
   const globalGeneral: Ref<GlobalGeneral | null> = ref(null);
 
   const allNewsPages: Ref<AllNewsPages | undefined> = ref();
+  const latestNewsPages: Ref<AllNewsPages | undefined> = ref();
   const newsEntryUri: Ref<string | undefined> = ref();
+
+  const activeNewsPaginationPage: Ref<number> = ref(1);
+  const newsPageLimit: Ref<number> = ref(4);
+  const totalNewsPagesCount: Ref<number> = ref(0);
 
   async function loadMainNav() {
     const { data: mainNavData, error: mainNavError } = await useAsyncData(
@@ -91,13 +96,36 @@ export const useCraftStore = defineStore("craft", () => {
       await useAsyncData(`allNewsPages`, () =>
         GqlAllNewsPages({
           siteId: currentSite.value?.siteId,
+          offset:
+            activeNewsPaginationPage.value == 1
+              ? 0
+              : newsPageLimit.value * (activeNewsPaginationPage.value - 1),
+          limit: newsPageLimit.value,
+          latestCount: 3,
         })
       );
     if (allNewsPagesData.value != null) {
       if (allNewsPagesData.value.entries)
-        allNewsPages.value = allNewsPagesData.value.entries as AllNewsPages;
+        setAllNewsPages(allNewsPagesData.value.entries as AllNewsPages);
+      if (allNewsPagesData.value.entryCount)
+        totalNewsPagesCount.value = allNewsPagesData.value.entryCount?.length;
+      if (allNewsPagesData.value.latestNews)
+        latestNewsPages.value = allNewsPagesData.value
+          .latestNews as AllNewsPages;
     }
   }
+
+  watch(activeNewsPaginationPage, () => {
+    loadAllNewsPages();
+  });
+
+  const setNewsActivePage = (page: number) => {
+    activeNewsPaginationPage.value = page;
+  };
+
+  const setAllNewsPages = (newsPages: AllNewsPages) => {
+    allNewsPages.value = newsPages;
+  };
 
   async function loadNewsEntry() {
     const { data: newsEntryData, error: newsEntryError } = await useAsyncData(
@@ -139,5 +167,10 @@ export const useCraftStore = defineStore("craft", () => {
     globalGeneral,
     allNewsPages,
     newsEntryUri,
+    totalNewsPagesCount,
+    newsPageLimit,
+    activeNewsPaginationPage,
+    setNewsActivePage,
+    latestNewsPages,
   };
 });

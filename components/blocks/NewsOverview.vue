@@ -6,7 +6,13 @@ const { t } = useI18n();
 const siteStore = useSiteStore();
 const { currentSite } = storeToRefs(siteStore);
 const craftStore = useCraftStore();
-const { allNewsPages } = storeToRefs(craftStore);
+const { setNewsActivePage } = craftStore;
+const {
+  allNewsPages,
+  activeNewsPaginationPage,
+  totalNewsPagesCount,
+  newsPageLimit,
+} = storeToRefs(craftStore);
 
 defineProps<{
   blockData: NewsOverviewBlock;
@@ -19,6 +25,15 @@ const postDate = (postDateString: any) => {
     `global.months.${postDate.getMonth() + 1}`
   )} ${postDate.getFullYear()}`;
 };
+
+const pagination = computed(() => {
+  let lastPage = Math.floor(totalNewsPagesCount.value / newsPageLimit.value);
+
+  if (totalNewsPagesCount.value % newsPageLimit.value !== 0) lastPage += 1;
+  const pagination = useGetPagination(activeNewsPaginationPage.value, lastPage);
+
+  return pagination;
+});
 </script>
 
 <template>
@@ -42,5 +57,14 @@ const postDate = (postDateString: any) => {
         </div>
       </NuxtLink>
     </div>
+    <div @click="setNewsActivePage(activeNewsPaginationPage - 1)">Previous</div>
+
+    <div class="" :key="page" v-for="page in pagination">
+      <div v-if="typeof page == 'number'" @click="setNewsActivePage(page)">
+        {{ page }}
+      </div>
+      <div class="" v-else>{{ page }}</div>
+    </div>
+    <div @click="setNewsActivePage(activeNewsPaginationPage + 1)">Next</div>
   </BaseContainer>
 </template>
