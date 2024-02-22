@@ -6,6 +6,8 @@ const route = useRoute();
 const siteStore = useSiteStore();
 const { currentSite } = storeToRefs(siteStore);
 const { setLocalized, setCurrentsite } = siteStore;
+const craftStore = useCraftStore();
+const { setMainNav } = craftStore;
 
 const matchingSite = useGetCurrentSiteData(route.fullPath as string);
 const primarySite = useGetPrimarySiteData();
@@ -107,6 +109,20 @@ if (pageInfo) {
     meta: parsedSEO.meta,
     link: parsedSEO.links,
   });
+}
+
+const { data: mainNavData, error: mainNavError } = await useAsyncData(
+  `mainNav`,
+  () =>
+    GqlMainNav({
+      siteId: finalSite.siteId,
+    })
+);
+
+if (mainNavError.value == null) {
+  if (mainNavData.value && mainNavData.value.navigationNodes) {
+    setMainNav(mainNavData.value.navigationNodes);
+  }
 }
 </script>
 

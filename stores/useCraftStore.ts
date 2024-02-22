@@ -25,21 +25,25 @@ export const useCraftStore = defineStore("craft", () => {
   const newsPageLimit: Ref<number> = ref(4);
   const totalNewsPagesCount: Ref<number> = ref(0);
 
-  async function loadMainNav() {
-    const { data: mainNavData, error: mainNavError } = await useAsyncData(
-      `mainNav`,
-      () =>
-        GqlMainNav({
-          siteId: currentSite.value?.siteId,
-        })
-    );
+  // async function loadMainNav() {
+  //   const { data: mainNavData, error: mainNavError } = await useAsyncData(
+  //     `mainNav`,
+  //     () =>
+  //       GqlMainNav({
+  //         siteId: currentSite.value?.siteId,
+  //       })
+  //   );
 
-    if (mainNavError.value == null) {
-      if (mainNavData.value && mainNavData.value.navigationNodes) {
-        mainNav.value = mainNavData.value.navigationNodes;
-      }
-    }
-  }
+  //   if (mainNavError.value == null) {
+  //     if (mainNavData.value && mainNavData.value.navigationNodes) {
+  //       mainNav.value = mainNavData.value.navigationNodes;
+  //     }
+  //   }
+  // }
+
+  const setMainNav = (mainNavValue: MainNav) => {
+    mainNav.value = mainNavValue;
+  };
 
   async function loadFooterNav() {
     const { data: footerNavData, error: footerNavError } = await useAsyncData(
@@ -150,7 +154,7 @@ export const useCraftStore = defineStore("craft", () => {
 
   const loadCraftData = () => {
     Promise.all([
-      loadMainNav(),
+      // loadMainNav(),
       loadFooterNav(),
       loadGlobalCompanyInfo(),
       loadGlobalGeneral(),
@@ -172,5 +176,6 @@ export const useCraftStore = defineStore("craft", () => {
     activeNewsPaginationPage,
     setNewsActivePage,
     latestNewsPages,
+    setMainNav,
   };
 });
