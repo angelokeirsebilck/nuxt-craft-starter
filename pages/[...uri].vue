@@ -7,6 +7,7 @@ const siteStore = useSiteStore();
 const { currentSite } = storeToRefs(siteStore);
 const { setLocalized, setCurrentsite } = siteStore;
 const craftStore = useCraftStore();
+const { mainNav } = storeToRefs(craftStore);
 const { setMainNav } = craftStore;
 
 const matchingSite = useGetCurrentSiteData(route.fullPath as string);
@@ -110,18 +111,19 @@ if (pageInfo) {
     link: parsedSEO.links,
   });
 }
+if (mainNav.value == null) {
+  const { data: mainNavData, error: mainNavError } = await useAsyncData(
+    `mainNav`,
+    () =>
+      GqlMainNav({
+        siteId: finalSite.siteId,
+      })
+  );
 
-const { data: mainNavData, error: mainNavError } = await useAsyncData(
-  `mainNav`,
-  () =>
-    GqlMainNav({
-      siteId: finalSite.siteId,
-    })
-);
-
-if (mainNavError.value == null) {
-  if (mainNavData.value && mainNavData.value.navigationNodes) {
-    setMainNav(mainNavData.value.navigationNodes);
+  if (mainNavError.value == null) {
+    if (mainNavData.value && mainNavData.value.navigationNodes) {
+      setMainNav(mainNavData.value.navigationNodes);
+    }
   }
 }
 </script>

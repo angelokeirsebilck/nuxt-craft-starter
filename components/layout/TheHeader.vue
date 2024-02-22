@@ -3,6 +3,7 @@ const craftStore = useCraftStore();
 const { mainNav } = storeToRefs(craftStore);
 const siteStore = useSiteStore();
 const { currentSite } = storeToRefs(siteStore);
+
 </script>
 
 <template>
